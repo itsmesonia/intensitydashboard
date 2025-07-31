@@ -36,7 +36,7 @@ Make sure you have:
 flutter run -d chrome
 ```
 
-### Mobile (ios/andoir)
+### Mobile (ios/android)
 
 open -a Simulator
 
