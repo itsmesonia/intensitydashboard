@@ -1,84 +1,3 @@
-// import 'package:flutter/material.dart';
-// import '../services/carbon_api_services.dart';
-// import '../widgets/current_intensity_widget.dart';
-// import '../widgets/intensity_chart.dart';
-// import '../models/intensity_data.dart';
-// import '../widgets/stateful_widget.dart';
-
-// class DashboardScreen extends StatefulWidget {
-//   const DashboardScreen({super.key});
-
-//   @override
-//   State<DashboardScreen> createState() => _DashboardScreenState();
-// }
-
-// class _DashboardScreenState extends State<DashboardScreen> {
-//   final _api = CarbonApiService();
-//   int? _currentIntensity;
-//   List<IntensityData>? _todayData;
-//   String? _error;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _loadData();
-//   }
-
-//   Future<void> _loadData() async {
-//     print('[LOAD] Fetching data from Carbon API...');
-//     try {
-//       final current = await _api.fetchCurrentIntensity();
-//       print('[LOAD] Current intensity fetched: $current');
-//       final today = await _api.fetchTodayIntensity();
-//       print('[LOAD] Today\'s intensity data fetched: ${today.length} entries');
-//       if (today.isEmpty) {
-//         throw Exception('No intensity data available for today');
-//       }
-//       setState(() {
-//         _currentIntensity = current;
-//         _todayData = today;
-//         _error = null;
-//       });
-
-//       print('Today\'s Intensity Data: $_todayData');
-//       print('Current Intensity Data: $_currentIntensity');
-//     } catch (e) {
-//       print('hitting error block $_error');
-//       setState(() => _error = 'Failed to load data: $e');
-//       print('hitting error block after setting state e $_error');
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(
-//           'Carbon Intensity Dashboard',
-//           style: TextStyle(color: Colors.white),
-//         ),
-//         backgroundColor: const Color.fromARGB(255, 32, 96, 136),
-//       ),
-
-//       backgroundColor: const Color.fromARGB(255, 32, 96, 136),
-//       body: _error != null
-//           ? Center(child: Text(_error!))
-//           : _currentIntensity == null || _todayData == null
-//           ? Center(child: CircularProgressIndicator())
-//           : RefreshIndicator(
-//               onRefresh: _loadData,
-//               child: ListView(
-//                 children: [
-//                   CurrentIntensityWidget(intensity: _currentIntensity!),
-//                   CurrentIntensityWidget(intensity: _currentIntensity!),
-//                   IntensityChart(data: _todayData!),
-//                 ],
-//               ),
-//             ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import '../services/carbon_api_services.dart';
 import '../widgets/current_intensity_widget.dart';
@@ -117,7 +36,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       final current = await _api.fetchCurrentIntensity();
       final today = await _api.fetchTodayIntensity();
       final month = await _api.fetchMonthIntensity();
-      print('[DEBUG] Month data count: ${month.length}');
 
       setState(() {
         _currentIntensity = current;
