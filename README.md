@@ -10,6 +10,10 @@ A Flutter application that fetches and displays real-time and historical UK carb
 - ⚙️ Built using `Flutter`, `Dart`, and `http` package for networking.
 
 ---
+## Today and Monthly:
+
+<img width="938" height="915" alt="Screenshot 2025-07-31 154706" src="https://github.com/user-attachments/assets/d7e90907-4048-4235-beca-3bac68baa227" />
+
 
 ## Getting Started
 
